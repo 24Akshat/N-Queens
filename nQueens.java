@@ -14,12 +14,12 @@ public class nQueens {
                     row+='.';
                 }
             }
-            newBoard.add(row);
+            newBoard.add(row);        //list having solution rows
         }
-        allBoards.add(newBoard);
+        allBoards.add(newBoard);        //nested list of solutions
         return;
     }
-    public static boolean isSafe(char[][] board, int row, int col) {
+    public static boolean isSafe(char[][] board, int row, int col) {        //to check whether queen can be added at the position or not
         // vertically
         for (int i = 0; i < row; i++) {
             if (board[i][col] == 'Q') {
@@ -78,7 +78,7 @@ public class nQueens {
         return true;
     }
 
-    public static void solver(char[][] board, List<List<String>> allBoards, int col) {
+    public static void solver(char[][] board, List<List<String>> allBoards, int col) {        //BackTracking algorithm
         if(col==board.length){
             saveBoard(board,allBoards);
             return;
@@ -102,12 +102,12 @@ public class nQueens {
     public static void main(String args[]) {
         List<List<String>> allBoards = creatingBoard(4);
         for(int i=0;i<allBoards.size();i++){
-            List<String> element = allBoards.get(i);
+            List<String> element = allBoards.get(i);        //traversing each solution in var element
             System.out.println("Solution :");
             for(int j=0; j<element.size();j++){
-                System.out.println(element.get(j));
+                System.out.println(element.get(j));        //printing out each row solution of element
             }
-            System.out.println();
+            System.out.println();        //printing an empty line for clarity
         }
     }
 }
